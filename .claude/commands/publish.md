@@ -58,6 +58,14 @@ Set the About section:
 `gh repo edit <owner/repo> --description "<short accurate description>" --homepage "<pages url>" --add-topic <topic> ...`
 Choose 3-6 relevant topics. Description must contain no secrets or personal data. Then put the same URL in the README's live-demo link, commit and push.
 
+## Step 6b - Live-site screenshot (Playwright MCP)
+Once the Pages URL returns 200:
+1. With the Playwright MCP tools, `browser_navigate` to the live Pages URL, `browser_resize` to 1280x720, then `browser_take_screenshot` (`type: png`, `fullPage: true`) saving to `docs/screenshot.png` (absolute path). Read the image to confirm it shows the real, fully rendered site.
+2. Embed it in the README under the live-demo link: `![Screenshot of the live site](docs/screenshot.png)` (add `docs/screenshot.png` to the project-structure tree if listed).
+3. If the project has an assessment/report `.docx` with an empty "Paste your screenshot" box, insert the image there (e.g. `python-docx`: `cell.paragraphs[0].add_run().add_picture("docs/screenshot.png", width=Inches(5.9))`). Never overwrite other content in the file.
+4. Commit `docs/screenshot.png` and the README change and push. Keep the Pages workflow publishing only `index.html`; the screenshot is for the README only.
+If Playwright MCP is unavailable, report that plainly and skip rather than faking an image.
+
 ## Step 7 - Final verification and report
 - Open the live URL check: `curl -sI <pages url>` returns 200.
 - Re-run a quick scan on what is now on GitHub (`git ls-files`, plus a grep of the tracked files) to confirm nothing sensitive was published.

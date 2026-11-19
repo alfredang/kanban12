@@ -14,6 +14,8 @@ A single-file demo Kanban board for a fictitious bank's internal IT PMO. Vanilla
 
 > All data is fictitious sample data. The board lives in memory only, so a refresh resets it to the seed data.
 
+![Screenshot of the live IT PMO Kanban board](docs/screenshot.png)
+
 ## Features
 
 - Four columns: Backlog, In Progress, Blocked, Done, each with a count badge and a summary strip
@@ -49,6 +51,7 @@ Everything is in [index.html](index.html): markup, a `<style>` block and a `<scr
 .
 ├── index.html                # the whole app
 ├── CLAUDE.md                 # project guidance
+├── docs/screenshot.png       # live-site screenshot used in this README
 ├── .claude/commands/publish.md
 └── .github/workflows/ci.yml  # checks + GitHub Pages deploy
 ```
