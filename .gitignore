@@ -1,0 +1,21 @@
+# Secrets / keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+
+# Local tooling
+.claude/settings.local.json
+.playwright-mcp/
+node_modules/
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
