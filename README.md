@@ -10,7 +10,11 @@ A single-file demo Kanban board for a fictitious bank's internal IT PMO. Vanilla
 
 ## Live demo
 
-**https://alfredang.github.io/kanban12/**
+**v1 (classic):** https://alfredang.github.io/kanban12/
+
+**v2 (redesign):** https://alfredang.github.io/kanban12/v2/
+
+v2 is a cute pastel redesign with big KPI tiles and three tabs: Status (the Kanban board), Timeline (tasks grouped by due date) and Projects (progress per workstream). v1 is kept unchanged at the site root.
 
 > All data is fictitious sample data. The board lives in memory only, so a refresh resets it to the seed data.
 
@@ -49,7 +53,8 @@ Everything is in [index.html](index.html): markup, a `<style>` block and a `<scr
 
 ```
 .
-├── index.html                # the whole app
+├── index.html                # v1, the classic app
+├── v2/index.html             # v2, the redesign (KPIs + Status/Timeline/Projects tabs)
 ├── CLAUDE.md                 # project guidance
 ├── docs/screenshot.png       # live-site screenshot used in this README
 ├── .claude/commands/publish.md
@@ -77,7 +82,7 @@ The config block at the top of the script holds `FORMSUBMIT_ENDPOINT`, `ID_PREFI
 [`ci.yml`](.github/workflows/ci.yml) runs on every push and pull request to `main`:
 
 1. **check:** a gitleaks secret scan, project constraint checks (no external scripts, fonts or CDNs; no `localStorage`/`sessionStorage`/`indexedDB`/cookies; no `alert()`/`confirm()`; no `!important`; `formsubmit.co` is the only allowed host), and HTML validation.
-2. **deploy:** on pushes to `main`, publishes `index.html` to GitHub Pages.
+2. **deploy:** on pushes to `main`, publishes v1 (`index.html`) at the site root and v2 (`v2/index.html`) at `/v2/` to GitHub Pages.
 
 ## Security and privacy
 
